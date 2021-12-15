@@ -8,7 +8,7 @@
 #define FROM_MASTER 1
 #define FROM_WORKER 10
 
-double** alloc_dynamic_arr(int rows, int cols) {
+double** alloc_dynamic_array(int rows, int cols) {
     auto* mem = (double*)malloc(rows * cols * sizeof(double));
     auto** A = (double**)malloc(rows * sizeof(double*));
     A[0] = mem;
@@ -31,9 +31,9 @@ int main(int argc, char* argv[]) {
         averow, extra, offset,
         i, j, k, rc = 0;
 
-    double** a = alloc_dynamic_arr(NRA, NCA);
-    double** b = alloc_dynamic_arr(NCA, NCB);
-    double** c = alloc_dynamic_arr(NRA, NCB);
+    double** a = alloc_dynamic_array(NRA, NCA);
+    double** b = alloc_dynamic_array(NCA, NCB);
+    double** c = alloc_dynamic_array(NRA, NCB);
 
     MPI_Status status;
     MPI_Init(&argc, &argv);

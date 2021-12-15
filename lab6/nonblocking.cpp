@@ -13,7 +13,7 @@ void empty_dynamic_arr(double** arr) {
     free(arr);
 }
 
-double** alloc_dynamic_arr(int rows, int cols) {
+double** alloc_dynamic_array(int rows, int cols) {
     auto* mem = (double*)malloc(rows * cols * sizeof(double));
     auto** A = (double**)malloc(rows * sizeof(double*));
     A[0] = mem;
@@ -32,9 +32,9 @@ int main(int argc, char* argv[]) {
 		rows,
 		averow, extra, offset,
 		i, j, k, rc = 0;
-	double** a = alloc_dynamic_arr(NRA, NCA);
-	double** b = alloc_dynamic_arr(NCA, NCB);
-	double** c = alloc_dynamic_arr(NRA, NCB);
+	double** a = alloc_dynamic_array(NRA, NCA);
+	double** b = alloc_dynamic_array(NCA, NCB);
+	double** c = alloc_dynamic_array(NRA, NCB);
 
 	MPI_Init(&argc, &argv);
 	MPI_Comm_size(MPI_COMM_WORLD, &numtasks);
